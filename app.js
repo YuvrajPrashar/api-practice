@@ -1,12 +1,10 @@
 import express, { urlencoded } from "express";
-import {
-  createProduct,
-  getProductDetails,
-} from "./controller/product.controller.js";
+import router from "./routes/product.route.js";
 
 const app = express();
 
 app.use(express.json());
-app.post("/product", createProduct);
-app.get("/product:id", getProductDetails);
+
+app.use("/api/v1", router);
+
 export { app };
